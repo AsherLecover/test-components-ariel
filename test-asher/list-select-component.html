@@ -1,0 +1,451 @@
+<style>
+  .name-list2 {
+    background-color: aqua;
+  }
+</style>
+
+<div style="display: flex">
+  <div style="display: flex; flex-direction: column">
+    <select id="s1" my-list=".name-list"></select>
+    <div class="name-list"></div>
+  </div>
+
+  <div style="display: flex; flex-direction: column">
+    <select id="s2" my-list=".name-list2"></select>
+    <div class="name-list2" myselect=""></div>
+  </div>
+</div>
+
+<script>
+  let db = {
+    "list 1": [
+      { id: 0, name: "Yo lecover", age: 481, year: 2050, goosStudent: false },
+      { id: 1, name: "Asher lecover", age: 30, year: 2020, goosStudent: false },
+      {
+        id: 2,name: "Reuven lecover", age: 31,year: 2021,goosStudent: false},
+      {id: 3,name: "Shimon lecover",age: 32,year: 2022,goosStudent: false},
+      { id: 4, name: "Levi lecover", age: 33, year: 2023, goosStudent: false },
+      {
+        id: 5,name: "Yehoda lecover", age: 34,year: 2024,goosStudent: false},
+      {
+        id: 6,
+        name: "Isaschar lecover",
+        age: 35,
+        year: 2025,
+        goosStudent: false
+      },
+      { id: 7, name: "Zvolon lecover", age: 36, year: 2026, goosStudent: true },
+      { id: 8, name: "Dan lecover", age: 37, year: 2027, goosStudent: true },
+      {
+        id: 9,
+        name: "Naftali lecover",
+        age: 38,
+        year: 2028,
+        goosStudent: true
+      },
+      {
+        id: 10,
+        name: "Binyamin lecover",
+        age: 39,
+        year: 2029,
+        goosStudent: true
+      },
+      { id: 11, name: "Gad lecover", age: 40, year: 2030, goosStudent: true },
+      { id: 12, name: "Asher lecover", age: 41, year: 2040, goosStudent: true }
+    ],
+    "list 2": [
+      {
+        id: 0,
+        name: "aa lecover",
+        age: 41,
+        year: 2050,
+        goosStudent: false
+      },
+      {
+        id: 1,
+        name: "bb l132ecover",
+        age: 30,
+        year: 2020,
+        goosStudent: false
+      },
+      {
+        id: 2,
+        name: "Reuven123 lecover",
+        age: 31,
+        year: 2021,
+        goosStudent: false
+      },
+      {
+        id: 3,
+        name: "Shim123on lecover",
+        age: 32,
+        year: 2022,
+        goosStudent: false
+      },
+      {
+        id: 4,
+        name: "Levi123 lecover",
+        age: 33,
+        year: 2023,
+        goosStudent: false
+      },
+      {
+        id: 5,
+        name: "Yehod123a lecover",
+        age: 34,
+        year: 2024,
+        goosStudent: false
+      },
+      {
+        id: 6,
+        name: "Isascha123r lecover",
+        age: 35,
+        year: 2025,
+        goosStudent: false
+      },
+      {
+        id: 7,
+        name: "Zvol123on lecover",
+        age: 36,
+        year: 2026,
+        goosStudent: true
+      },
+      { id: 8, name: "Dan123 lecover", age: 37, year: 2027, goosStudent: true },
+      {
+        id: 9,
+        name: "Naft123ali lecover",
+        age: 38,
+        year: 2028,
+        goosStudent: true
+      },
+      {
+        id: 10,
+        name: "Bin123yamin lecover",
+        age: 39,
+        year: 2029,
+        goosStudent: true
+      },
+      {
+        id: 11,
+        name: "Ga132d lecover",
+        age: 40,
+        year: 2030,
+        goosStudent: true
+      },
+      {
+        id: 12,
+        name: "As132her lecover",
+        age: 41,
+        year: 2040,
+        goosStudent: true
+      }
+    ],
+    "list 3": [
+      {
+        id: 0,
+        name: "Yo3465sef lecover",
+        age: 41,
+        year: 2050,
+        goosStudent: false
+      },
+      {
+        id: 1,
+        name: "Ash3654er lecover",
+        age: 30,
+        year: 2020,
+        goosStudent: false
+      },
+      {
+        id: 2,
+        name: "Reuven 3456lecover",
+        age: 31,
+        year: 2021,
+        goosStudent: false
+      },
+      {
+        id: 3,
+        name: "Shimon leco5436ver",
+        age: 32,
+        year: 2022,
+        goosStudent: false
+      },
+      { id: 4, name: "Levi lecover", age: 33, year: 2023, goosStudent: false },
+      {
+        id: 5,
+        name: "Y345ehoda lecover",
+        age: 34,
+        year: 2024,
+        goosStudent: false
+      },
+      {
+        id: 6,
+        name: "Isasch34ar lecover",
+        age: 35,
+        year: 2025,
+        goosStudent: false
+      },
+      {
+        id: 7,
+        name: "Zvolon5345 lecover",
+        age: 36,
+        year: 2026,
+        goosStudent: true
+      },
+      { id: 8, name: "Dan lecove345r", age: 37, year: 2027, goosStudent: true },
+      {
+        id: 9,
+        name: "Naftali lecover",
+        age: 38,
+        year: 2028,
+        goosStudent: true
+      },
+      {
+        id: 10,
+        name: "Bi456nyamin lecover",
+        age: 39,
+        year: 2029,
+        goosStudent: true
+      },
+      { id: 11, name: "Gad65 lecover", age: 40, year: 2030, goosStudent: true },
+      {
+        id: 12,
+        name: "Asher75 lecover",
+        age: 41,
+        year: 2040,
+        goosStudent: true
+      }
+    ],
+    "list 4": [
+      {
+        id: 0,
+        name: "Yos",
+        age: 41,
+        year: 2050,
+        goosStudent: false
+      },
+      {
+        id: 1,
+        name: "Asher l0798ecover",
+        age: 30,
+        year: 2020,
+        goosStudent: false
+      },
+      {
+        id: 2,
+        name: "Reuven leco0987ver",
+        age: 31,
+        year: 2021,
+        goosStudent: false
+      },
+      {
+        id: 3,
+        name: "0987Shimon lecover",
+        age: 32,
+        year: 2022,
+        goosStudent: false
+      },
+      {
+        id: 4,
+        name: "Levi907 lecover",
+        age: 33,
+        year: 2023,
+        goosStudent: false
+      },
+      {
+        id: 5,
+        name: "Yehoda 8098lecover",
+        age: 34,
+        year: 2024,
+        goosStudent: false
+      },
+      {
+        id: 6,
+        name: "I0987saschar lecover",
+        age: 35,
+        year: 2025,
+        goosStudent: false
+      },
+      {
+        id: 7,
+        name: "Zvo90809lon lecover",
+        age: 36,
+        year: 2026,
+        goosStudent: true
+      },
+      {
+        id: 8,
+        name: "Dan leco0879ver",
+        age: 37,
+        year: 2027,
+        goosStudent: true
+      },
+      {
+        id: 9,
+        name: "Naftali leco07890ver",
+        age: 38,
+        year: 2028,
+        goosStudent: true
+      },
+      {id: 10,name: "Bin09870yamin lecover",age: 39, year: 2029,goosStudent: true},
+      { id: 11, name: "Gad le8790890cover",age: 40,year: 2030, goosStudent: true},
+      {id: 12,name: "Asher le6666666666666666cover890", age: 41,year: 2040,goosStudent: true}]};
+
+  let mySelect = "";
+
+  document.querySelectorAll("select").forEach(s => {
+    
+    for (const key in db) {
+      s.innerHTML += `<option>${key}</option>`;
+    }
+
+    s.onchange = ev => {
+      mySelect = s.selectedOptions[0].innerHTML;
+
+      console.log(mySelect);
+
+      let list = document.querySelector(s.getAttribute("my-list"));
+      document.querySelector('.good').setAttribute('mylist', mySelect)
+
+      //document.querySelector(".name-list").innerHTML = render(templet1);
+      //render(templet1, arr); arr = db["shuki"]
+    };
+  });
+
+  let templet1 = `
+      <div style="display: flex" >
+    <ul>
+      <li>
+       <web-component class="good"  stuId=[id]
+        name=[name]
+        age= [age]
+        year=[year]
+        goosStudent=[goosStudent]
+        mylist="list 1" ></web-component>
+      </li>
+    </ul>
+    </div>
+    `;
+
+  let templet2 = `
+    
+      <div style="display: flex"
+    <ol>
+      <li>
+        <web-component class="good"  stuId=[id]
+         name=[name]
+          age= [age]
+          year=[year]
+          goosStudent=[goosStudent]
+          mylist="list 2" ></web-component>
+      </li>
+    </ol>
+    </div>`;
+
+    function render(templet, dadeBase) {
+
+let cleenPropertiesTamplateArr = [];
+let result = "";
+let pattern = /\[(.*)\]/g;
+let propertiesTamplate = templet.match(pattern);
+
+for (let i of propertiesTamplate) {
+  cleenPropertiesTamplate = i.replace("[", "").replace("]", "");
+  cleenPropertiesTamplateArr.push(cleenPropertiesTamplate);
+}
+
+
+
+dadeBase.forEach(i => {
+    let itemHtml = templet;
+
+  cleenPropertiesTamplateArr.forEach(item => {
+    let propertyValue = i[item];
+    
+    itemHtml = itemHtml.replace(`[${item}]`, propertyValue);
+  });
+  result += itemHtml;
+});
+
+return result;
+}
+
+  document.querySelector(".name-list").innerHTML = render(templet1, db['list 1']);
+  document.querySelector(".name-list2").innerHTML = render(templet2, db['list 2']);
+
+  class WebComponent extends HTMLElement {
+    static get observedAttributes() {
+      
+      return ["mylist"];
+    }
+
+    constructor() {
+      super();
+
+      let idSelctor = this.getAttribute("stuId");
+      console.log(mySelect);
+
+      const shadow = this.attachShadow({ mode: "open" });
+
+      this.studentImg = document.createElement("img");
+      this.studentNameP = document.createElement("p");
+      this.studentAgeP = document.createElement("p");
+      this.studentYearP = document.createElement("p");
+      this.studentGoosStudentP = document.createElement("p");
+
+      let div = document.createElement("div");
+      shadow.appendChild(div);
+
+      div.appendChild(this.studentImg);
+      div.appendChild(this.studentNameP);
+      div.appendChild(this.studentAgeP);
+      div.appendChild(this.studentYearP);
+      div.appendChild(this.studentGoosStudentP);
+
+      let style = document.createElement("style");
+      div.appendChild(style);
+
+      this.mylist = this.getAttribute("mylist");
+
+      
+      
+      
+
+      // db[this.mylist].forEach(item =>{
+      // this.studentImg.innerHTML = `http//img${idSelctor}.jpg`;
+      // this.studentImg.src = "http//img${idSelctor}.jpg";
+      // this.studentNameP.innerHTML = this.getAttribute('name')
+      // this.studentAgeP.innerHTML = item.age;
+      // this.studentYearP.innerHTML = item.year;
+      // this.studentGoosStudentP.innerHTML = item.goosStudent;
+
+      // })
+
+    
+
+      style.textContent = `div{
+            border: 1px solid blue;
+            padding: 5px;
+    
+            }
+            .good{
+            background-color: aqua}`;
+    }
+    attributeChangedCallback(name, oldValue, newValue) {
+      this.mylist = this.getAttribute("mylist");
+      db[this.mylist].forEach(item =>{
+      this.studentImg.src = "http//img${idSelctor}.jpg";
+      this.studentNameP.innerHTML = item.name
+      this.studentAgeP.innerHTML = item.age;
+      this.studentYearP.innerHTML = item.year;
+      this.studentGoosStudentP.innerHTML = item.goosStudent;
+
+      // this.studentNameP.innerHTML = this.getAttribute('name')
+      // this.studentAgeP.innerHTML = this.getAttribute('age')
+      // this.studentYearP.innerHTML = this.getAttribute('year')
+      // this.studentGoosStudentP.innerHTML = this.getAttribute('goosStudent')  
+
+      })
+    }
+  }
+  customElements.define("web-component", WebComponent);
+</script>
