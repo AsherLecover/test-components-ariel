@@ -1,0 +1,142 @@
+<div  style="display: flex">
+<div class="name-list"></div>
+<div class="name-list2"></div>
+</div>
+<div>
+  <p>ashehjkhjkgkjhgjkhgjkhr</p>
+</div>
+<web-component class="good"  stuId=3 stuIsGood="false" stueYear="2050" ></web-component>
+
+
+<style>
+    .name-list2{
+        background-color: aqua
+    }
+</style>
+
+<script>
+  let templet1 = `
+  <div style="display: flex" >
+<ul>
+  <li>
+   <web-component class="good"  stuId=[id] stuIsGood="false" stueYear="2050" ></web-component>
+  </li>
+</ul>
+</div>
+`;
+
+  let templet2 = `
+
+  <div style="display: flex"
+<ul>
+  <li>
+   <web-component class="good"  stuId=[id] stuIsGood="false" stueYear="2050" ></web-component>
+  </li>
+</ul>
+</div>`;
+
+
+
+   function render(templet){
+  let itemHtml = templet1;
+
+  let cleenPropertiesTamplateArr = [];
+  let result = "";
+  let pattern = /\[(.*)\]/g;
+  let propertiesTamplate = templet.match(pattern);
+  
+
+  for (let i of propertiesTamplate) {
+    cleenPropertiesTamplate = i.replace("[", "").replace("]", "");
+    cleenPropertiesTamplateArr.push(cleenPropertiesTamplate);
+  }
+  console.log(cleenPropertiesTamplateArr);
+  
+
+  for (let i = 0; i <= 13; i++) {
+    let itemHtml = templet;
+
+    cleenPropertiesTamplateArr.forEach(item => {
+            let propertyValue = item;
+            console.log(propertyValue);
+            
+            itemHtml = itemHtml.replace(`[${item}]`, i);
+          });
+          result += itemHtml;
+  }
+  return result
+
+   }
+
+document.querySelector(".name-list").innerHTML = render(templet1);
+document.querySelector(".name-list2").innerHTML = render(templet2);
+
+</script>
+
+
+
+<script>
+  let db = [
+    { id: 0, name: "Yosef lecover", age: 41, year: 2050, goosStudent: false },
+    { id: 1, name: "Asher lecover", age: 30, year: 2020, goosStudent: false },
+    { id: 2, name: "Reuven lecover", age: 31, year: 2021, goosStudent: false },
+    { id: 3, name: "Shimon lecover", age: 32, year: 2022, goosStudent: false },
+    { id: 4, name: "Levi lecover", age: 33, year: 2023, goosStudent: false },
+    { id: 5, name: "Yehoda lecover", age: 34, year: 2024, goosStudent: false },
+    {id: 6,name: "Isaschar lecover",age: 35,year: 2025,goosStudent: false},
+    { id: 7, name: "Zvolon lecover", age: 36, year: 2026, goosStudent: true },
+    { id: 8, name: "Dan lecover", age: 37, year: 2027, goosStudent: true },
+    { id: 9, name: "Naftali lecover", age: 38, year: 2028, goosStudent: true },
+    {id: 10,name: "Binyamin lecover",age: 39,year: 2029,goosStudent: true},
+    { id: 11, name: "Gad lecover", age: 40, year: 2030, goosStudent: true },
+    { id: 12, name: "Asher lecover", age: 41, year: 2040, goosStudent: true }
+  ];
+
+  class WebComponent extends HTMLElement {
+    constructor() {
+      super();
+
+      let idSelctor = this.getAttribute("stuId");
+      let isGood = this.getAttribute("stuIsGood");
+
+      console.log(isGood);
+
+      const shadow = this.attachShadow({ mode: "open" });
+
+      let studentImg = document.createElement("img");
+      let studentNameP = document.createElement("p");
+      let studentAgeP = document.createElement("p");
+      let studentYearP = document.createElement("p");
+      let studentGoosStudentP = document.createElement("p");
+
+      let div = document.createElement("div");
+      shadow.appendChild(div);
+
+      div.appendChild(studentImg);
+      div.appendChild(studentNameP);
+      div.appendChild(studentAgeP);
+      div.appendChild(studentYearP);
+      div.appendChild(studentGoosStudentP);
+
+      let style = document.createElement("style");
+      div.appendChild(style);
+
+      studentImg.innerHTML = `http//img${idSelctor}.jpg`;
+      studentNameP.innerHTML = db[idSelctor].name;
+      studentAgeP.innerHTML = db[idSelctor].age;
+      studentYearP.innerHTML = db[idSelctor].year;
+      studentGoosStudentP.innerHTML = db[idSelctor].goosStudent;
+
+      style.textContent = `div{
+        border: 1px solid blue;
+        padding: 5px;
+
+        }
+        .good{
+        background-color: aqua
+}
+        `;
+    }
+  }
+  customElements.define("web-component", WebComponent);
+</script>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Rendering-engine</title>
+  </head>
+  <body  >
+    <div class="name-list"></div>
+    <div class="name-list2"></div>
+
+    <style>
+      body{
+        display: flex;
+      }
+    
+    </style>
+    <script>
+      let templet1 = `
+      <ul>
+      <li>[name]</li>
+      <li>[age]</li>
+      <li>[year]</li>
+      <li>[goosStudent]</li>
+    </ul>
+      `;
+
+      let templet2 = `
+        <div> <label>name: </label> <span>[name]</span> </div> 
+        <div> <label>age: </label> <span>[age]</span> </div>
+        <div> <label>year: </label> <span>[year]</span> </div>
+        <div> <label>goosStudent: </label> <span>[goosStudent]</span> `;
+
+      let db = [
+        {id: 1, name: "Asher lecover", age: 30, year: 2020, goosStudent: true },
+        {id: 2, name: "Reuven lecover", age: 31, year: 2021, goosStudent: true },
+        {id: 3, name: "Shimon lecover", age: 32, year: 2022, goosStudent: false },
+        {id: 4, name: "Levi lecover", age: 33, year: 2023, goosStudent: false },
+        {id: 5, name: "Yehoda lecover", age: 34, year: 2024, goosStudent: true },
+        {id: 6, name: "Isaschar lecover", age: 35, year: 2025, goosStudent: true },
+        {id: 7, name: "Zvolon lecover", age: 36, year: 2026, goosStudent: true },
+        {id: 8, name: "Dan lecover", age: 37, year: 2027, goosStudent: false },
+        {id: 9, name: "Naftali lecover", age: 38, year: 2028, goosStudent: true },
+        {id: 10, name: "Binyamin lecover", age: 39, year: 2029, goosStudent: true },
+        {id: 11, name: "Gad lecover", age: 40, year: 2030, goosStudent: false },
+        {id: 12, name: "Asher lecover", age: 41, year: 2040, goosStudent: true },
+        {id: 13, name: "Yosef lecover", age: 41, year: 2050, goosStudent: false }
+      ];
+
+      function render(templet, dadeBase) {
+        let cleenPropertiesTamplateArr = [];
+        let result = "";
+        let pattern = /\[(.*)\]/g;
+        let propertiesTamplate = templet.match(pattern);
+
+        for (let i of propertiesTamplate) {
+          cleenPropertiesTamplate = i.replace("[", "").replace("]", "");
+          cleenPropertiesTamplateArr.push(cleenPropertiesTamplate);
+        }
+
+        dadeBase.forEach(dictItem => {
+          let itemHtml = templet;
+
+          cleenPropertiesTamplateArr.forEach(item => {
+            let propertyValue = dictItem[item];
+            itemHtml = itemHtml.replace(`[${item}]`, propertyValue);
+          });
+          result += itemHtml;
+        });
+        return result;
+      }
+      document.querySelector(".name-list").innerHTML = render(templet1, db);
+      document.querySelector(".name-list2").innerHTML = render(templet2, db);
+    </script>
+  </body>
+</html>

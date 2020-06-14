@@ -1,0 +1,114 @@
+
+<h2>studens card</h2>
+<div style="display: flex">
+<web-component   stuId="0" class="good"stuIsGood="false" stueYear="2050" ></web-component>
+<web-component class="good"  stuId="1" stuIsGood="false" stueYear="2020" ></web-component>
+<web-component class="good"  stuId="4" stuIsGood="false" stueYear="2023" ></web-component>
+<web-component class="good"  stuId="5" stuIsGood="false" stueYear="2024" ></web-component>
+<web-component class="good"  stuId="6" stuIsGood="false" stueYear="2025" ></web-component>
+<web-component class="web good"  stuId="8" stuIsGood="true" stueYear="2027" ></web-component>
+<web-component class="good"  stuId="7" stuIsGood="false" stueYear="2026" ></web-component>
+<web-component class="web good"  stuId="9" stuIsGood="true" stueYear="2028" ></web-component>
+<web-component class="good"  stuId="2" stuIsGood="false" stueYear="2021" ></web-component>
+<web-component class="web good"  stuId="10" stuIsGood="true" stueYear="2029" ></web-component>
+<web-component class="web good"  stuId="11" stuIsGood="true" stueYear="2030" ></web-component>
+<web-component class="good"  stuId="3" stuIsGood="false" stueYear="2022" ></web-component>
+<web-component class="web good"  stuId="12" stuIsGood="true" stueYear="2040" ></web-component>
+<web-component class="web good"  stuId="12" stuIsGood="true" stueYear="2050" ></web-component>
+</div>
+
+
+
+<style>
+  /*web-component{display: block;}*/
+  .good 
+  {background: grey
+  
+  }
+  .web {background: violet;
+    font-weight: bold
+
+  }
+
+    h4{
+    border: 1px solid blue;
+    padding: 2px;
+    margin: 5px;
+}
+
+
+</style>
+
+<script>
+
+let db = [
+        {id: 0, name: "Yosef lecover", age: 41, year: 2050, goosStudent: false },
+        {id: 1, name: "Asher lecover", age: 30, year: 2020, goosStudent: false },
+        {id: 2, name: "Reuven lecover", age: 31, year: 2021, goosStudent: false },
+        {id: 3, name: "Shimon lecover", age: 32, year: 2022, goosStudent: false },
+        {id: 4, name: "Levi lecover", age: 33, year: 2023, goosStudent: false },
+        {id: 5, name: "Yehoda lecover", age: 34, year: 2024, goosStudent: false },
+        {id: 6, name: "Isaschar lecover", age: 35, year: 2025, goosStudent: false },
+        {id: 7, name: "Zvolon lecover", age: 36, year: 2026, goosStudent: true },
+        {id: 8, name: "Dan lecover", age: 37, year: 2027, goosStudent: true },
+        {id: 9, name: "Naftali lecover", age: 38, year: 2028, goosStudent: true },
+        {id: 10, name: "Binyamin lecover", age: 39, year: 2029, goosStudent: true },
+        {id: 11, name: "Gad lecover", age: 40, year: 2030, goosStudent: true },
+        {id: 12, name: "Asher lecover", age: 41, year: 2040, goosStudent: true }
+      ];
+      
+     
+
+  class WebComponent extends HTMLElement {
+
+    constructor() {
+      super();
+
+      let idSelctor = this.getAttribute("stuId");
+      let isGood = this.getAttribute("stuIsGood");
+
+      console.log(idSelctor);
+            
+      const shadow = this.attachShadow({ mode: "open" });
+
+     
+
+        let studentImg =  document.createElement("img"); 
+        let studentNameP = document.createElement("p");
+        let studentAgeP = document.createElement("p");
+        let studentYearP = document.createElement("p");
+        let studentGoosStudentP = document.createElement("p");
+
+        let div =  document.createElement("div"); 
+        shadow.appendChild(div);
+
+        div.appendChild(studentImg)
+        div.appendChild(studentNameP);
+        div.appendChild(studentAgeP);
+        div.appendChild(studentYearP);
+        div.appendChild(studentGoosStudentP);
+
+        let style = document.createElement("style");
+        div.appendChild(style);
+
+        studentImg.innerHTML = `http//img${idSelctor}.jpg`
+        studentImg.src = `http//img${idSelctor}.jpg`
+        studentNameP.innerHTML = db[idSelctor].name;
+        studentAgeP.innerHTML = db[idSelctor].age;
+        studentYearP.innerHTML = db[idSelctor].year;
+        studentGoosStudentP.innerHTML = db[idSelctor].goosStudent;
+
+
+      style.textContent = `div{
+        border: 1px solid blue;
+        padding: 5px;
+
+        }
+        .good{
+        background-color: aqua
+}
+        `;
+    }
+  }
+  customElements.define("web-component", WebComponent);
+</script>

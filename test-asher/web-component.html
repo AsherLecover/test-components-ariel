@@ -1,0 +1,82 @@
+
+<h2>studens card</h2>
+<web-component></web-component>
+
+<style>
+    h4{
+    border: 1px solid blue;
+    padding: 2px;
+    margin: 5px;
+}
+</style>
+
+
+
+<script>
+
+let db = [
+        {id: 0, name: "Yosef lecover", age: 41, year: 2050, goosStudent: false },
+        {id: 1, name: "Asher lecover", age: 30, year: 2020, goosStudent: true },
+        {id: 2, name: "Reuven lecover", age: 31, year: 2021, goosStudent: true },
+        {id: 3, name: "Shimon lecover", age: 32, year: 2022, goosStudent: false },
+        {id: 4, name: "Levi lecover", age: 33, year: 2023, goosStudent: false },
+        {id: 5, name: "Yehoda lecover", age: 34, year: 2024, goosStudent: true },
+        {id: 6, name: "Isaschar lecover", age: 35, year: 2025, goosStudent: true },
+        {id: 7, name: "Zvolon lecover", age: 36, year: 2026, goosStudent: true },
+        {id: 8, name: "Dan lecover", age: 37, year: 2027, goosStudent: false },
+        {id: 9, name: "Naftali lecover", age: 38, year: 2028, goosStudent: true },
+        {id: 10, name: "Binyamin lecover", age: 39, year: 2029, goosStudent: true },
+        {id: 11, name: "Gad lecover", age: 40, year: 2030, goosStudent: false },
+        {id: 12, name: "Asher lecover", age: 41, year: 2040, goosStudent: true }
+      ];
+     
+
+  class WebComponent extends HTMLElement {
+    constructor() {
+      super();
+      const shadow = this.attachShadow({ mode: "open" });
+
+      let style = document.createElement("style");
+      shadow.appendChild(style);
+
+      for(let i = 0 ; i < db.length; i++){
+
+        let div =  document.createElement("div"); 
+        shadow.appendChild(div);
+
+        let studentImg =  document.createElement("img"); 
+        let studentNameP = document.createElement("p");
+        let studentAgeP = document.createElement("p");
+        let studentYearP = document.createElement("p");
+        let studentGoosStudentP = document.createElement("p");
+       
+        studentImg.innerHTML = `http//img${i}.jpg`
+        studentNameP.innerHTML = db[i].name;
+        studentAgeP.innerHTML = db[i].age;
+        studentYearP.innerHTML = db[i].year;
+        studentGoosStudentP.innerHTML = db[i].goosStudent;
+
+        div.appendChild(studentImg)
+        div.appendChild(studentNameP);
+        div.appendChild(studentAgeP);
+        div.appendChild(studentYearP);
+        div.appendChild(studentGoosStudentP);
+      }
+
+      style.textContent = `div{
+        border: 1px solid blue;
+        padding: 2px;
+        margin: 5px;
+        }
+        
+        
+        `;
+
+
+
+      
+
+    }
+  }
+  customElements.define("web-component", WebComponent);
+</script>
